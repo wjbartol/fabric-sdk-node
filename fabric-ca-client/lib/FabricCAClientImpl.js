@@ -157,7 +157,7 @@ var FabricCAServices = class extends BaseClient {
 				function (privateKey) {
 					//generate CSR using enrollmentID for the subject
 					try {
-						var csr = privateKey.generateCSR('CN=' + req.enrollmentID+ ',OU=Fabric');
+						var csr = privateKey.generateCSR('CN=' + req.enrollmentID + ',OU=Fabric');
 						self._fabricCAClient.enroll(req.enrollmentID, req.enrollmentSecret, csr)
 							.then(
 							function (enrollResponse) {
@@ -226,7 +226,7 @@ var FabricCAServices = class extends BaseClient {
 				function (privateKey) {
 					//generate CSR using the subject of the current user's certificate
 					try {
-						var csr = privateKey.generateCSR('CN=' + subject+ ',OU=Fabric');
+						var csr = privateKey.generateCSR('CN=' + subject + ',OU=Fabric');
 						self._fabricCAClient.reenroll(csr, currentUser.getSigningIdentity())
 							.then(
 							function (response) {
